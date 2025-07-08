@@ -2273,7 +2273,7 @@
 			_chatId = chat.id;
 			await chatId.set(_chatId);
 
-			window.history.replaceState(history.state, '', `/c/${_chatId}`);
+			window.history.replaceState(history.state, '', `${base}/c/${_chatId}`);
 
 			await tick();
 
