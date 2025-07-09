@@ -23,6 +23,7 @@
 
 	import { getModels } from '$lib/apis';
 	import { getGroups } from '$lib/apis/groups';
+	import { base } from '$app/paths';
 
 	import { capitalizeFirstLetter, copyToClipboard } from '$lib/utils';
 
@@ -110,7 +111,7 @@
 			id: `${model.id}-clone`,
 			name: `${model.name} (Clone)`
 		});
-		goto('/workspace/models/create');
+		goto(`${base}/workspace/models/create`);
 	};
 
 	const shareModelHandler = async (model) => {
@@ -335,7 +336,7 @@
 				{/if}
 				<a
 					class=" px-2 py-1.5 rounded-xl bg-black text-white dark:bg-white dark:text-black transition font-medium text-sm flex items-center"
-					href="/workspace/models/create"
+					href=`${base}/workspace/models/create`
 				>
 					<Plus className="size-3" strokeWidth="2.5" />
 
@@ -422,7 +423,7 @@
 								model.user_id === $user?.id ||
 								model.access_control.write.group_ids.some((wg) => group_ids.includes(wg))
 							) {
-								goto(`/workspace/models/edit?id=${encodeURIComponent(model.id)}`);
+								goto(`${base}/workspace/models/edit?id=${encodeURIComponent(model.id)}`);
 							}
 						}}
 					>
@@ -451,7 +452,7 @@
 											<Tooltip content={model.name} className=" w-fit" placement="top-start">
 												<a
 													class=" font-semibold line-clamp-1 hover:underline capitalize"
-													href={`/?models=${encodeURIComponent(model.id)}`}
+													href={`${base}/?models=${encodeURIComponent(model.id)}`}
 												>
 													{model.name}
 												</a>
@@ -502,7 +503,7 @@
 																	{model}
 																	editHandler={() => {
 																		goto(
-																			`/workspace/models/edit?id=${encodeURIComponent(model.id)}`
+																			`${base}/workspace/models/edit?id=${encodeURIComponent(model.id)}`
 																		);
 																	}}
 																	shareHandler={() => {

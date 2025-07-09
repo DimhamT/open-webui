@@ -2,6 +2,7 @@
 	import { onMount, getContext } from 'svelte';
 	import { WEBUI_NAME, showSidebar, functions, config, user, showArchivedChats } from '$lib/stores';
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 
 	const i18n = getContext('i18n');
 
@@ -15,7 +16,7 @@
 			)
 		) {
 			// If the feature is not enabled, redirect to the home page
-			goto('/');
+			goto(`${base}/`);
 		}
 
 		loaded = true;

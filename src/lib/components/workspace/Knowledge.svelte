@@ -17,6 +17,7 @@
 	} from '$lib/apis/knowledge';
 
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { capitalizeFirstLetter } from '$lib/utils';
 
 	import DeleteConfirmDialog from '../common/ConfirmDialog.svelte';
@@ -130,7 +131,7 @@
 			<div class="flex w-full justify-end gap-1.5">
 				<a
 					class=" px-2 py-1.5 rounded-xl bg-black text-white dark:bg-white dark:text-black transition font-medium text-sm flex items-center"
-					href="/workspace/knowledge/create"
+					href="${base}/workspace/knowledge/create"
 				>
 					<Plus className="size-3" strokeWidth="2.5" />
 
@@ -207,7 +208,7 @@
 										)
 									);
 								} else {
-									goto(`/workspace/knowledge/${item.id}`);
+									goto(`${base}/workspace/knowledge/${item.id}`);
 								}
 							}}
 						>

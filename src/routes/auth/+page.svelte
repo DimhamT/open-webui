@@ -7,6 +7,7 @@
 	import { onMount, getContext, tick } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 
 	import { getBackendConfig } from '$lib/apis';
 	import { ldapUserSignIn, getSessionUser, userSignIn, userSignUp } from '$lib/apis/auths';
@@ -48,7 +49,7 @@
 			await config.set(await getBackendConfig());
 
 			if (!redirectPath) {
-				redirectPath = $page.url.searchParams.get('redirect') || '/';
+				redirectPath = $page.url.searchParams.get('redirect') || `${base}/`;
 			}
 
 			goto(redirectPath);
@@ -156,7 +157,7 @@
 	onMount(async () => {
 		const redirectPath = $page.url.searchParams.get('redirect');
 		if ($user !== undefined) {
-			goto(redirectPath || '/');
+			goto(redirectPath || `${base}/`);
 		} else {
 			if (redirectPath) {
 				localStorage.setItem('redirectPath', redirectPath);

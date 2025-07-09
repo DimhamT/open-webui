@@ -7,6 +7,7 @@
 	import SearchInput from './Sidebar/SearchInput.svelte';
 	import { getChatById, getChatList, getChatListBySearchText } from '$lib/apis/chats';
 	import Spinner from '../common/Spinner.svelte';
+	import { base } from '$app/paths';
 
 	import dayjs from '$lib/dayjs';
 	import calendar from 'dayjs/plugin/calendar';
@@ -26,7 +27,7 @@
 		{
 			label: $i18n.t('Start a new conversation'),
 			onClick: async () => {
-				await goto(`/${query ? `?q=${query}` : ''}`);
+				await goto(`${base}/${query ? `?q=${query}` : ''}`);
 				show = false;
 				onClose();
 			},
@@ -231,7 +232,7 @@
 						{
 							label: $i18n.t('Create a new note'),
 							onClick: async () => {
-								await goto(`/notes?content=${query}`);
+								await goto(`${base}/notes?content=${query}`);
 								show = false;
 								onClose();
 							},
@@ -368,14 +369,14 @@
 							idx + actions.length
 								? 'bg-gray-50 dark:bg-gray-850'
 								: ''}"
-							href="/c/{chat.id}"
+							href="{base}/c/{chat.id}"
 							draggable="false"
 							data-arrow-selected={selectedIdx === idx + actions.length ? 'true' : undefined}
 							on:mouseenter={() => {
 								selectedIdx = idx + actions.length;
 							}}
 							on:click={async () => {
-								await goto(`/c/${chat.id}`);
+								await goto(`${base}/c/${chat.id}`);
 								show = false;
 								onClose();
 							}}

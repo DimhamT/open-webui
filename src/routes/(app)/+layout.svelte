@@ -8,6 +8,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 
 	import { getKnowledgeBases } from '$lib/apis/knowledge';
 	import { getFunctions } from '$lib/apis/functions';
@@ -147,7 +148,7 @@
 
 	onMount(async () => {
 		if ($user === undefined || $user === null) {
-			await goto('/auth');
+			await goto(`${base}/auth`);
 			return;
 		}
 		if (!['user', 'admin'].includes($user?.role)) {
@@ -242,7 +243,7 @@
 					} else {
 						temporaryChatEnabled.set(!$temporaryChatEnabled);
 					}
-					await goto('/');
+					await goto(`${base}/`);
 					setTimeout(() => {
 						document.getElementById('new-chat-button')?.click();
 					}, 0);

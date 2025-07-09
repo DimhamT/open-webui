@@ -6,6 +6,7 @@
 	import ToolkitEditor from '$lib/components/workspace/Tools/ToolkitEditor.svelte';
 	import { WEBUI_VERSION } from '$lib/constants';
 	import { tools } from '$lib/stores';
+	import { base } from '$app/paths';
 	import { compareVersion, extractFrontmatter } from '$lib/utils';
 	import { onMount, getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
@@ -47,7 +48,7 @@
 			toast.success($i18n.t('Tool updated successfully'));
 			tools.set(await getTools(localStorage.token));
 
-			// await goto('/workspace/tools');
+			// await goto(`${base}/workspace/tools`);
 		}
 	};
 
@@ -58,7 +59,7 @@
 		if (id) {
 			tool = await getToolById(localStorage.token, id).catch((error) => {
 				toast.error(`${error}`);
-				goto('/workspace/tools');
+				goto(`${base}/workspace/tools`);
 				return null;
 			});
 

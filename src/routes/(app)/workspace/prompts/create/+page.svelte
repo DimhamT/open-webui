@@ -8,6 +8,7 @@
 
 	import { createNewPrompt, getPrompts } from '$lib/apis/prompts';
 	import PromptEditor from '$lib/components/workspace/Prompts/PromptEditor.svelte';
+	import { base } from '$app/paths';
 
 	let prompt: {
 		title: string;
@@ -28,7 +29,7 @@
 			toast.success($i18n.t('Prompt created successfully'));
 
 			await prompts.set(await getPrompts(localStorage.token));
-			await goto('/workspace/prompts');
+			await goto(`${base}/workspace/prompts`);
 		}
 	};
 

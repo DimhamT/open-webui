@@ -1,6 +1,7 @@
 <script>
 	import { getContext, onMount, tick } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 
 	const i18n = getContext('i18n');
 
@@ -306,7 +307,7 @@ class Pipe:
 								<button
 									class="w-full text-left text-sm py-1.5 px-1 rounded-lg dark:text-gray-300 dark:hover:text-white hover:bg-black/5 dark:hover:bg-gray-850"
 									on:click={() => {
-										goto('/admin/functions');
+										goto(`${base}/admin/functions`);
 									}}
 									type="button"
 								>

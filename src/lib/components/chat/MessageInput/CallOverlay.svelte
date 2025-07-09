@@ -759,14 +759,16 @@
 								? ' size-16'
 								: rmsLevel * 100 > 1
 									? 'size-14'
-									: 'size-12'}  transition-all rounded-full {(model?.info?.meta
-							?.profile_image_url ?? '/static/favicon.png') !== '/static/favicon.png'
-							? ' bg-cover bg-center bg-no-repeat'
-							: 'bg-black dark:bg-white'}  bg-black dark:bg-white"
-						style={(model?.info?.meta?.profile_image_url ?? '/static/favicon.png') !==
-						'/static/favicon.png'
-							? `background-image: url('${model?.info?.meta?.profile_image_url}');`
-							: ''}
+									: 'size-12'}  transition-all rounded-full {(
+							model?.info?.meta?.profile_image_url ?? `/static/favicon.png`
+						).endsWith('/static/favicon.png')
+							? 'bg-black dark:bg-white'
+							: 'bg-cover bg-center bg-no-repeat'}  bg-black dark:bg-white"
+						style={(model?.info?.meta?.profile_image_url ?? `/static/favicon.png`).endsWith(
+							'/static/favicon.png'
+						)
+							? ''
+							: `background-image: url('${model?.info?.meta?.profile_image_url}');`}
 					/>
 				{/if}
 				<!-- navbar -->
@@ -841,14 +843,16 @@
 									? 'size-48'
 									: rmsLevel * 100 > 1
 										? 'size-44'
-										: 'size-40'}  transition-all rounded-full {(model?.info?.meta
-								?.profile_image_url ?? '/static/favicon.png') !== '/static/favicon.png'
-								? ' bg-cover bg-center bg-no-repeat'
-								: 'bg-black dark:bg-white'} "
-							style={(model?.info?.meta?.profile_image_url ?? '/static/favicon.png') !==
-							'/static/favicon.png'
-								? `background-image: url('${model?.info?.meta?.profile_image_url}');`
-								: ''}
+										: 'size-40'}  transition-all rounded-full {(
+								model?.info?.meta?.profile_image_url ?? `/static/favicon.png`
+							).endsWith('/static/favicon.png')
+								? 'bg-black dark:bg-white'
+								: 'bg-cover bg-center bg-no-repeat'} "
+							style={(model?.info?.meta?.profile_image_url ?? `/static/favicon.png`).endsWith(
+								'/static/favicon.png'
+							)
+								? ''
+								: `background-image: url('${model?.info?.meta?.profile_image_url}');`}
 						/>
 					{/if}
 				</button>

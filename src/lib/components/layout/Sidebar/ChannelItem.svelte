@@ -6,6 +6,7 @@
 	import { page } from '$app/stores';
 	import { mobile, showSidebar, user } from '$lib/stores';
 	import { updateChannelById } from '$lib/apis/channels';
+	import { base } from '$app/paths';
 
 	import Cog6 from '$lib/components/icons/Cog6.svelte';
 	import ChannelModal from './ChannelModal.svelte';
@@ -47,13 +48,13 @@
 	id="sidebar-channel-item"
 	bind:this={itemElement}
 	class=" w-full {className} rounded-xl flex relative group hover:bg-gray-100 dark:hover:bg-gray-900 {$page
-		.url.pathname === `/channels/${channel.id}`
+		.url.pathname === `${base}/channels/${channel.id}`
 		? 'bg-gray-100 dark:bg-gray-900 selected'
 		: ''} px-2.5 py-1"
 >
 	<a
 		class=" w-full flex justify-between"
-		href="/channels/{channel.id}"
+		href="${base}/channels/{channel.id}"
 		on:click={() => {
 			console.log(channel);
 			if ($mobile) {

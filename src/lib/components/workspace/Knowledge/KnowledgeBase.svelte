@@ -8,7 +8,9 @@
 	const i18n = getContext('i18n');
 
 	import { goto } from '$app/navigation';
+	import { WEBUI_API_BASE_URL } from '$lib/constants';
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import {
 		mobile,
 		showSidebar,
@@ -44,7 +46,6 @@
 
 	import SyncConfirmDialog from '../../common/ConfirmDialog.svelte';
 	import RichTextInput from '$lib/components/common/RichTextInput.svelte';
-	import EllipsisVertical from '$lib/components/icons/EllipsisVertical.svelte';
 	import Drawer from '$lib/components/common/Drawer.svelte';
 	import ChevronLeft from '$lib/components/icons/ChevronLeft.svelte';
 	import LockClosed from '$lib/components/icons/LockClosed.svelte';
@@ -608,7 +609,7 @@
 		if (res) {
 			knowledge = res;
 		} else {
-			goto('/workspace/knowledge');
+			goto(`${base}/workspace/knowledge`);
 		}
 
 		const dropZone = document.querySelector('body');
@@ -758,7 +759,9 @@
 								<div class=" flex-1 text-xl font-medium">
 									<a
 										class="hover:text-gray-500 dark:hover:text-gray-100 hover:underline grow line-clamp-1"
-										href={selectedFile.id ? `/api/v1/files/${selectedFile.id}/content` : '#'}
+										href={selectedFile.id
+											? `${WEBUI_API_BASE_URL}/files/${selectedFile.id}/content`
+											: '#'}
 										target="_blank"
 									>
 										{decodeString(selectedFile?.meta?.name)}
