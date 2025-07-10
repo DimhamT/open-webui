@@ -34,6 +34,7 @@ from open_webui.models.users import Users
 
 from open_webui.models.groups import Groups, GroupModel, GroupUpdateForm, GroupForm
 from open_webui.config import (
+    WEBUI_BASE_PATH,
     DEFAULT_USER_ROLE,
     ENABLE_OAUTH_SIGNUP,
     OAUTH_MERGE_ACCOUNTS_BY_EMAIL,
@@ -1170,10 +1171,10 @@ class OAuthManager:
             access_token: Optional OAuth access token for authenticated requests
 
         Returns:
-            A data URL containing the base64 encoded picture, or "/user.png" if processing fails
+            A data URL containing the base64 encoded picture, or "{WEBUI_BASE_PATH}/user.png" if processing fails
         """
         if not picture_url:
-            return "/user.png"
+            return f"{WEBUI_BASE_PATH}/user.png"
 
         try:
             get_kwargs = {}
@@ -1200,10 +1201,10 @@ class OAuthManager:
                         log.warning(
                             f"Failed to fetch profile picture from {picture_url}"
                         )
-                        return "/user.png"
+                        return f"{WEBUI_BASE_PATH}/user.png"
         except Exception as e:
             log.error(f"Error processing profile picture '{picture_url}': {e}")
-            return "/user.png"
+            return f"{WEBUI_BASE_PATH}/user.png"
 
     async def handle_login(self, request, provider):
         if provider not in OAUTH_PROVIDERS:
@@ -1377,7 +1378,7 @@ class OAuthManager:
                             picture_url, token.get("access_token")
                         )
                     else:
-                        picture_url = "/user.png"
+                        picture_url = f"{WEBUI_BASE_PATH}/user.png"
                     username_claim = auth_manager_config.OAUTH_USERNAME_CLAIM
 
                     name = user_data.get(username_claim)

@@ -110,6 +110,8 @@ from open_webui.models.users import UserModel, Users
 from open_webui.models.chats import Chats
 
 from open_webui.config import (
+    LICENSE_KEY,
+    WEBUI_BASE_PATH,
     # Ollama
     ENABLE_OLLAMA_API,
     OLLAMA_BASE_URLS,
@@ -2173,13 +2175,13 @@ async def get_manifest_json():
             "background_color": "#343541",
             "icons": [
                 {
-                    "src": "/static/logo.png",
+                    "src": f"{WEBUI_BASE_PATH}/static/logo.png",
                     "type": "image/png",
                     "sizes": "500x500",
                     "purpose": "any",
                 },
                 {
-                    "src": "/static/logo.png",
+                    "src": f"{WEBUI_BASE_PATH}/static/logo.png",
                     "type": "image/png",
                     "sizes": "500x500",
                     "purpose": "maskable",
@@ -2240,9 +2242,9 @@ def swagger_ui_html(*args, **kwargs):
     return get_swagger_ui_html(
         *args,
         **kwargs,
-        swagger_js_url="/static/swagger-ui/swagger-ui-bundle.js",
-        swagger_css_url="/static/swagger-ui/swagger-ui.css",
-        swagger_favicon_url="/static/swagger-ui/favicon.png",
+        swagger_js_url=f"{WEBUI_BASE_PATH}/static/swagger-ui/swagger-ui-bundle.js",
+        swagger_css_url=f"{WEBUI_BASE_PATH}/static/swagger-ui/swagger-ui.css",
+        swagger_favicon_url=f"{WEBUI_BASE_PATH}/static/swagger-ui/favicon.png",
     )
 
 

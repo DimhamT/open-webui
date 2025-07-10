@@ -1106,7 +1106,7 @@ TOOL_SERVER_CONNECTIONS = PersistentConfig(
 
 
 WEBUI_URL = PersistentConfig("WEBUI_URL", "webui.url", os.environ.get("WEBUI_URL", ""))
-
+WEBUI_BASE_PATH = urlparse(WEBUI_URL.value.rstrip("/")).path if WEBUI_URL.value else ""
 
 ENABLE_SIGNUP = PersistentConfig(
     "ENABLE_SIGNUP",
@@ -1444,7 +1444,7 @@ DEFAULT_ARENA_MODEL = {
     "id": "arena-model",
     "name": "Arena Model",
     "meta": {
-        "profile_image_url": "/favicon.png",
+        "profile_image_url": WEBUI_BASE_PATH + "/favicon.png",
         "description": "Submit your questions to anonymous AI chatbots and vote on the best response.",
         "model_ids": None,
     },
