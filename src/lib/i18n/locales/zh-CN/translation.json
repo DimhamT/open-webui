@@ -15,7 +15,7 @@
 	"{{COUNT}} hidden lines": "{{COUNT}} 行被隐藏",
 	"{{COUNT}} Replies": "{{COUNT}} 条回复",
 	"{{COUNT}} Sources": "{{COUNT}} 个引用来源",
-	"{{COUNT}} words": "{{COUNT}} 个字",
+	"{{COUNT}} words": "{{COUNT}} 个词",
 	"{{LOCALIZED_DATE}} at {{LOCALIZED_TIME}}": "{{LOCALIZED_DATE}} {{LOCALIZED_TIME}}",
 	"{{model}} download has been canceled": "已取消模型 {{model}} 的下载",
 	"{{user}}'s Chats": "{{user}} 的对话记录",
