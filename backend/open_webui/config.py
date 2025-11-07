@@ -19,6 +19,7 @@ from authlib.integrations.starlette_client import OAuth
 from open_webui.env import (
     DATA_DIR,
     DATABASE_URL,
+    LICENSE_KEY,
     ENV,
     REDIS_URL,
     REDIS_KEY_PREFIX,
