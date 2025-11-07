@@ -13,7 +13,7 @@ if [ -z "$BASE_PATH" ]; then
     exit 0
 fi
 
-HTML_FILE="/home/open-webui/build/index.html"
+HTML_FILE="../build/index.html"
 
 if [ ! -f "$HTML_FILE" ]; then
     echo "HTML file $HTML_FILE does not exist. Cannot update base paths."
