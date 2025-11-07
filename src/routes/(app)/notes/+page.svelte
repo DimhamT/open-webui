@@ -44,7 +44,7 @@
 					<div
 						class="flex gap-1 scrollbar-none overflow-x-auto w-fit text-center text-sm font-medium bg-transparent py-1 touch-auto pointer-events-auto"
 					>
-						<a class="min-w-fit transition" href="${base}/notes">
+						<a class="min-w-fit transition" href={`${base}/notes`}>
 							{$i18n.t('Notes')}
 						</a>
 					</div>

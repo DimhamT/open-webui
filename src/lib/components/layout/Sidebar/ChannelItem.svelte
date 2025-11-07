@@ -54,7 +54,7 @@
 >
 	<a
 		class=" w-full flex justify-between"
-		href="${base}/channels/{channel.id}"
+		href={`${base}/channels/{channel.id}`}
 		on:click={() => {
 			console.log(channel);
 			if ($mobile) {

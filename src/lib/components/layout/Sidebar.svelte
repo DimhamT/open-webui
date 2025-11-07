@@ -580,7 +580,7 @@
 					<Tooltip content={$i18n.t('New Chat')} placement="right">
 						<a
 							class=" cursor-pointer flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850 transition group"
-							href="${base}/"
+							href={`${base}/`}
 							draggable="false"
 							on:click={async (e) => {
 								e.stopImmediatePropagation();
@@ -623,7 +623,7 @@
 						<Tooltip content={$i18n.t('Notes')} placement="right">
 							<a
 								class=" cursor-pointer flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850 transition group"
-								href="${base}/notes"
+								href={`${base}/notes`}
 								on:click={async (e) => {
 									e.stopImmediatePropagation();
 									e.preventDefault();
@@ -647,7 +647,7 @@
 						<Tooltip content={$i18n.t('Workspace')} placement="right">
 							<a
 								class=" cursor-pointer flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850 transition group"
-								href="${base}/workspace"
+								href={`${base}/workspace`}
 								on:click={async (e) => {
 									e.stopImmediatePropagation();
 									e.preventDefault();
@@ -736,7 +736,7 @@
 			>
 				<a
 					class="flex items-center rounded-xl size-8.5 h-full justify-center hover:bg-gray-100/50 dark:hover:bg-gray-850/50 transition no-drag-region"
-					href="${base}/"
+					href={`${base}/`}
 					draggable="false"
 					on:click={newChatHandler}
 				>
@@ -748,7 +748,7 @@
 					/>
 				</a>
 
-				<a href="${base}/" class="flex flex-1 px-1.5" on:click={newChatHandler}>
+				<a href={`${base}/`} class="flex flex-1 px-1.5" on:click={newChatHandler}>
 					<div
 						id="sidebar-webui-name"
 						class=" self-center font-medium text-gray-850 dark:text-white font-primary"
@@ -797,7 +797,7 @@
 						<a
 							id="sidebar-new-chat-button"
 							class="group grow flex items-center space-x-3 rounded-2xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition outline-none"
-							href="${base}/"
+							href={`${base}/`}
 							draggable="false"
 							on:click={newChatHandler}
 							aria-label={$i18n.t('New Chat')}
@@ -840,7 +840,7 @@
 							<a
 								id="sidebar-notes-button"
 								class="grow flex items-center space-x-3 rounded-2xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-								href="${base}/notes"
+								href={`${base}/notes`}
 								on:click={itemClickHandler}
 								draggable="false"
 								aria-label={$i18n.t('Notes')}
@@ -861,7 +861,7 @@
 							<a
 								id="sidebar-workspace-button"
 								class="grow flex items-center space-x-3 rounded-2xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-								href="${base}/workspace"
+								href={`${base}/workspace`}
 								on:click={itemClickHandler}
 								draggable="false"
 								aria-label={$i18n.t('Workspace')}

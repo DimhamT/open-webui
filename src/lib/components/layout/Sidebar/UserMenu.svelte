@@ -113,7 +113,7 @@
 			{#if role === 'admin'}
 				<DropdownMenu.Item
 					as="a"
-					href="${base}/playground"
+					href={`${base}/playground`}
 					class="flex rounded-xl py-1.5 px-3 w-full hover:bg-gray-50 dark:hover:bg-gray-800 transition select-none"
 					on:click={async () => {
 						show = false;
@@ -130,7 +130,7 @@
 				</DropdownMenu.Item>
 				<DropdownMenu.Item
 					as="a"
-					href="${base}/admin"
+					href={`${base}/admin`}
 					class="flex rounded-xl py-1.5 px-3 w-full hover:bg-gray-50 dark:hover:bg-gray-800 transition select-none"
 					on:click={async () => {
 						show = false;

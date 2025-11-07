@@ -53,21 +53,21 @@
 						class="min-w-fit p-1.5 {['/playground', '/playground/'].includes($page.url.pathname)
 							? ''
 							: 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'} transition"
-						href="${base}/playground">{$i18n.t('Chat')}</a
+						href={`${base}/playground`}>{$i18n.t('Chat')}</a
 					>
 
 					<!-- <a
 						class="min-w-fit p-1.5 {$page.url.pathname.includes('/playground/notes')
 							? ''
 							: 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'} transition"
-						href="${base}/playground/notes">{$i18n.t('Notes')}</a
+						href={`${base}/playground/notes`}>{$i18n.t('Notes')}</a
 					> -->
 
 					<a
 						class="min-w-fit p-1.5 {$page.url.pathname.includes('/playground/completions')
 							? ''
 							: 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'} transition"
-						href="${base}/playground/completions">{$i18n.t('Completions')}</a
+						href={`${base}/playground/completions`}>{$i18n.t('Completions')}</a
 					>
 				</div>
 			</div>
